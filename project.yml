@@ -1,0 +1,26 @@
+name: MediaTransfer
+options:
+  bundleIdPrefix: com.mediatransfer
+  deploymentTarget:
+    iOS: "16.0"
+targets:
+  MediaTransfer:
+    type: application
+    platform: iOS
+    sources: [Sources]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.mediatransfer.poc
+        SWIFT_VERSION: "5.0"
+        TARGETED_DEVICE_FAMILY: "1"
+    info:
+      path: Sources/Info.plist
+      properties:
+        CFBundleDisplayName: Media Transfer
+        UILaunchScreen: {}
+        NSPhotoLibraryUsageDescription: Reads your original photos and videos so they can be sent to your tablet.
+        NSAppTransportSecurity:
+          NSExceptionDomains:
+            ts.net:
+              NSIncludesSubdomains: true
+              NSExceptionAllowsInsecureHTTPLoads: true
